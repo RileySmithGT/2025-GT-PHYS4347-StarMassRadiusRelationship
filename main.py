@@ -3,24 +3,24 @@ import os
 import matplotlib.pyplot as plt
 from scipy.constants import h as h_SI, c as c_SI, G as G_SI, physical_constants
 
-# — convert constants to cgs —
+#  convert constants to cgs 
 h    = h_SI * 1e7               # Planck’s constant [erg·s]
 c    = c_SI * 1e2               # speed of light [cm/s]
 G    = G_SI * 1e3               # gravitational constant [cm³/(g·s²)]
 m_n  = physical_constants['neutron mass'][0] * 1e3   # neutron mass [g]
 
-# — natural scales from O&V 1939 —
+#  natural scales from O&V 1939 
 r_tilde   = (1/np.pi)*(h/(m_n*c))**1.5 * (c/np.sqrt(m_n*G))
 M_tilde   = (1/np.pi)*(h/(m_n*c))**1.5 * (c**3/np.sqrt(m_n*G**3))
 eps_scale = np.pi**2 * m_n**4 * c**5 / h**3
 Msun    = 1.989e33    # g
 
-# — EOS conversions —
+#  EOS conversions 
 MeV_to_erg = 1.602176634e-6
 fm3_to_cm3 = 1e39
 conv_P     = MeV_to_erg * fm3_to_cm3
 
-# — polynomial fits for each EOS —
+#  polynomial fits for each EOS 
 eos_coefs = {
     'AV14+UVII': [2.6511,  76.744,  -183.611, 459.906,  -122.832],
     'UV14+UVII': [7.57891, -1.23275, 227.384, -146.596, 324.823, -120.355],
@@ -86,7 +86,7 @@ def integrate_tov(nc, n_grid, P_t, eps_t, dpdn_t, h=1e-4):
     R_km = R * r_tilde / 1e5
     return M, R_km
 
-# — compute results for each EOS —
+#  compute results for each EOS 
 nc_vals = np.linspace(0.01, 2.3, 100)
 results = {}
 for name, coefs in eos_coefs.items():
@@ -98,7 +98,7 @@ for name, coefs in eos_coefs.items():
         Rs.append(R_km)
     results[name] = (np.array(Ms), np.array(Rs))
 
-# — observational data —
+#  observational data 
 obs = {
     'PSR J0030+0451': {'M':1.44, 'M_err':[0.14,0.15], 'R':13.02, 'R_err':[1.06,1.24]},
     'PSR J0740+6620': {'M':2.08, 'M_err':[0.07,0.07], 'R':13.7,  'R_err':[1.5, 2.6 ]}
