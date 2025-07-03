@@ -131,7 +131,7 @@ obs = {
 }
 
 # Save figures
-subfolder = "Plots/"
+subfolder = "plots/generated"
 os.makedirs(subfolder, exist_ok=True)
 
 # 1) Mass vs. density w/ plunge cut
@@ -148,8 +148,8 @@ plt.ylim(0, 3)
 plt.xlim(0, 2.5)
 plt.legend()
 
-filename = os.path.join(subfolder, "MassDensity.eps")
-plt.gcf().savefig(filename, format="eps")
+filename = os.path.join(subfolder, "mass_density.svg")
+plt.gcf().savefig(filename, format="svg")
 
 # 2) Radius vs. density w/ plunge cut
 plt.figure()
@@ -165,8 +165,8 @@ plt.ylim(0, 15)
 plt.xlim(0, 2.5)
 plt.legend()
 
-filename = os.path.join(subfolder, "RadiusDensity.eps")
-plt.gcf().savefig(filename, format="eps")
+filename = os.path.join(subfolder, "radius_density.svg")
+plt.gcf().savefig(filename, format="svg")
 
 # 3) Mass–Radius w/ plunge cut + error bars
 plt.figure()
@@ -192,6 +192,6 @@ plt.ylim(0, 3)
 plt.xlim(0, 20)
 plt.legend(loc='upper left')
 
-filename = os.path.join(subfolder, "MassRadius.eps")
-plt.gcf().savefig(filename, format="eps")
+filename = os.path.join(subfolder, "mass_radius.svg")
+plt.gcf().savefig(filename, format="svg")
 plt.show()
