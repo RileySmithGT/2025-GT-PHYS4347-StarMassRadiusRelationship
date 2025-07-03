@@ -14,15 +14,15 @@ These equations are developed through the use of theoretical modelling, astrophy
 The purpose of this project is to numerically model different equations of state that describe the mass and radius of NS over a range of central densities. This is done through the integration of Tolman-Oppenheimer-Volkoff equations using a fourth-order Runge-Kutta method.
 
 Three equations of state were modelled, originally developed by Wiringa et al. (1988), then parameterised for ease of integration by Kutschera & Kotlorz (1993). The equations of state are as follows:  
-\[
+$$
 \textbf{AV14+UVII: } E(n) =2.6511+76.744n-183.611n^2+459.906n^3-122.832n^4
-\]  
-\[
+$$  
+$$
 \textbf{UV14+UVII: } E(n) =7.57891 - 1.23275n+227.384n^2-146.596n^3+324.823n^4-120.355n^5
-\]  
-\[
+$$  
+$$
 \textbf{UV14+TN1: } E(n) =6.33041-28.1793n+288.397n^2-65.2281n^3
-\]
+$$
 
 The results are shown in three plots: Mass v Density, Radius v Density, and Mass v Radius. These are compared to expected values from previous modelling of these equations of state. Figure **MassRadius** also includes empirical data from PSR J0030+0451 and PSR J0740+6620, this is in order to understand the validity of the equations of state. Figure **MassRadius** is also compared to Figure **Fig2Compare** from the paper by Lattimer & Prakash (2001). 
 
@@ -32,28 +32,28 @@ The results are shown in three plots: Mass v Density, Radius v Density, and Mass
 
 The equations that are used to solve the equations of state are as follows:  
 Structure equations:  
-\[
+$$
 \frac{du}{dR} = 4\pi \epsilon R^2
-\]  
-\[
+$$  
+$$
 \frac{dt}{dR} = -4\pi R \left(P + \frac{u}{4\pi R^3}\right) \cdot \frac{P + \epsilon}{1 - \frac{2u}{R}}
-\]
+$$
 
 Energy density and pressure from the equations of state:  
-\[
+$$
 \epsilon(n) = n \left[ E(n) + m_n c^2 \right]
-\]  
-\[
+$$  
+$$
 P(n) = n^2 \frac{dE}{dn}
-\]  
-\[
+$$  
+$$
 u = \frac{M_r}{\tilde{M}}, \quad R = \frac{r}{\tilde{r}}
-\]
+$$
 
 The initial conditions for the integration are as follows:  
-\[
+$$
 R = 0, \quad u = 0, \quad t = t_0
-\]
+$$
 
 ---
 
